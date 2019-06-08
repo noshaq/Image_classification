@@ -140,15 +140,3 @@ def imshow_batch_of_three(batch):
 def augment_image(image):
     return image
 
-if __name__ == '__main__':
-    import argparse
-
-    parser = argparse.ArgumentParser(
-        description="Prepare dataset")
-
-    parser.add_argument('--dir', '-d',
-        help="directory with images"
-    )
-    
-    args = parser.parse_args()
-    prepare_dataset(args.dir) 
