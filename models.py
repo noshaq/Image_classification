@@ -4,7 +4,7 @@ print("Hi!, Current Tensorflow version:")
 
 print(tf.__version__)
 
-def LeNet(nb_classes, channels):
+def LeNet(img_rows,img_cols,nb_classes, channels):
 
 	model = Sequential(name='LeNet')
     '''
@@ -33,7 +33,7 @@ def LeNet(nb_classes, channels):
     return model
 
 
-def Alexnet(nb_classes, channels):
+def Alexnet(img_rows,img_cols,nb_classes, channels):
 
 	'''
         channels: Specify if the image is grayscale (1) or RGB (3)
@@ -100,16 +100,14 @@ def Alexnet(nb_classes, channels):
    model.summary()
 
 
-def VGG(nb_classes, channels):
+def VGG(img_rows,img_cols,nb_classes, channels):
     '''
         channels: Specify if the image is grayscale (1) or RGB (3)
         nb_epoch: Number of epochs
         batch_size: Batch size for the model
         nb_classes: Number of classes for classification
     '''
-    img_rows = train_generator.target_size[0]
-    img_cols = train_generator.target_size[0]
-
+    
     input_shape = (img_rows, img_cols, channels) #  (height, width, channel RGB)
 
     #

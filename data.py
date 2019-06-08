@@ -84,6 +84,7 @@ def make_dataset(sources, training=False, batch_size=1,
     num_epochs=1, num_parallel_calls=1, shuffle_buffer_size=None):
     """
     Returns an operation to iterate over the dataset specified in sources
+
     Args:
         sources (list): A list of (filepath, label_id) pairs.
         training (bool): whether to apply certain processing steps
@@ -95,6 +96,7 @@ def make_dataset(sources, training=False, batch_size=1,
             map operations.
         shuffle_buffer_size (int): Number of elements from this dataset
             from which the new dataset will sample.
+
     Returns:
         A tf.data.Dataset object. It will return a tuple images of shape
         [N, H, W, CH] and labels shape [N, 1].
@@ -140,3 +142,15 @@ def imshow_batch_of_three(batch):
 def augment_image(image):
     return image
 
+if __name__ == '__main__':
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Prepare dataset")
+
+    parser.add_argument('--dir', '-d',
+        help="directory with images"
+    )
+    
+    args = parser.parse_args()
+    prepare_dataset(args.dir)
